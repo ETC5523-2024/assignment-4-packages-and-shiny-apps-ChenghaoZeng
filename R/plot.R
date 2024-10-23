@@ -6,6 +6,15 @@
 #' @param y_vars A vector of strings representing the columns to be plotted on the Y-axis.
 #' @return A ggplot object
 #' @export
+#' @examples
+#' # Load the valentineTool package
+#' library(valentineTool)
+#'
+#' # Load example dataset provided in the package
+#' data("historical_spending")
+#'
+#' # Plot trends for Candy, Flowers, and Jewelry over time
+#' plot_trends_custom(historical_spending, c("Candy", "Flowers", "Jewelry"))
 plot_trends_custom <- function(data, y_vars) {
   library(ggplot2)
   library(tidyr)

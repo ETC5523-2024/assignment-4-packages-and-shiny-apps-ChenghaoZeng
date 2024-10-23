@@ -16,4 +16,6 @@
 #'   \item{Clothing}{Spending on clothing in USD.}
 #'   \item{GiftCards}{Spending on gift cards in USD.}
 #' }
+#' @docType data
 #' @source <https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-02-13>
+"historical_spending"
