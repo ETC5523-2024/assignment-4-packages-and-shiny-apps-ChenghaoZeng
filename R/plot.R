@@ -1,25 +1,33 @@
-#' Plot Consumer Spending Trend with Flexible Y-axis
+#' Plot Multiple Consumer Spending Trends with Custom Colors
 #'
-#' This function plots the selected Y-axis variable over time.
+#' This function plots the selected Y-axis variables over time, each with a different color.
 #'
 #' @param data A data frame containing the historical spending data.
-#' @param y_var A string representing the column to be plotted on the Y-axis.
+#' @param y_vars A vector of strings representing the columns to be plotted on the Y-axis.
 #' @return A ggplot object
 #' @export
-plot_flexible_trend <- function(data, y_var) {
+plot_trends_custom <- function(data, y_vars) {
   library(ggplot2)
+  library(tidyr)
 
-  # Ensure the Y variable is in the dataset
-  if (!(y_var %in% names(data))) {
-    stop("The specified Y variable is not in the data.")
+  # Ensure all Y variables are in the dataset
+  if (!all(y_vars %in% names(data))) {
+    stop("One or more specified Y variables are not in the data.")
   }
 
-  ggplot(data, aes_string(x = "Year", y = y_var)) +
-    geom_line(color = "blue", size = 1) +
-    geom_point(size = 3, color = "red") +
-    geom_smooth(method = "lm", color = "black", linetype = "dashed") +
-    labs(title = paste("Trend of", y_var, "Over Time"),
+  # Reshape data to a long format for ggplot
+  long_data <- data %>%
+    pivot_longer(cols = all_of(y_vars), names_to = "Category", values_to = "Value")
+
+  # Plot with ggplot
+  ggplot(long_data, aes(x = Year, y = Value, color = Category, group = Category)) +
+    geom_line(size = 1) +
+    geom_point(size = 2) +
+    labs(title = "Trends of Selected Variables Over Time",
          x = "Year",
-         y = y_var) +
-    theme_minimal()
+         y = "Value",
+         color = "Category") +
+    theme_minimal() +
+    theme(legend.position = "right") # Position legend next to the plot
 }
+
