@@ -16,38 +16,38 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of valentineTool is to ...
+The goal of `valentineTool` is to provide an analysis tool for Valentine's Day consumer trends. This package helps users visualize consumer spending over the years for different categories such as candy, flowers, jewelry, and more. The functions in this package are particularly useful for analysts, researchers, and businesses looking to understand changing consumer behavior during Valentine's Day.
 
 ## Installation
 
-You can install the development version of valentineTool from [GitHub](https://github.com/) with:
+You can install the development version of valentineTool from [GitHub](https://github.com/ETC5523-2024/assignment-4-packages-and-shiny-apps-ChenghaoZeng) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2024/assignment-4-packages-and-shiny-apps-ChenghaoZeng")
+# Install remotes if not already installed
+install.packages("remotes")
+
+# Install the package from GitHub
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-ChenghaoZeng")
 ```
 
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
+
 ```{r example}
 library(valentineTool)
-## basic example code
+library(ggplot2)
+
+# Create the line plot for PercentCelebrating
+ggplot(historical_spending, aes(x = Year, y = PercentCelebrating)) +
+  geom_line(color = "blue") +                  
+  labs(title = "Percent Celebrating Valentine's Day Over Time",
+       x = "Year",
+       y = "Percent Celebrating") +
+  theme_minimal() 
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
