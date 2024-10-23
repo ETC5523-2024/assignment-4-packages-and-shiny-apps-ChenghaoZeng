@@ -2,19 +2,19 @@ Package: valentineTool
 Title: Valentine's Day Consumer Trends Analysis Tool
 Version: 0.0.0.9000
 Authors@R: 
-    person("Chenghao", "Zeng", , "czen0003@student.monash.edu", role = c("aut", "cre"),
-        
+    person("Chenghao", "Zeng", , "czen0003@student.monash.edu", role = c("aut", "cre")
 Description: The 'valentineTool' package provides tools to analyze consumer trends related to Valentine's Day spending. 
     It includes functions to visualize historical spending data on various categories such as Candy, Flowers, Jewelry, 
     and more, using ggplot2. Users can generate line plots for multiple spending categories over time, helping to 
     understand changes in consumer behavior. This package is useful for businesses and analysts who want insights 
     into consumer spending patterns during Valentine's Day over multiple years.
-    
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
+    Imports:
+    ggplot2,
+    tidyr
 LazyData: true
