@@ -42,4 +42,43 @@ ggplot(historical_spending, aes(x = Year, y = PercentCelebrating)) +
   theme_minimal() 
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example-1.png" width="100%" /> \## Main
+Components of valentineTool Package
+
+- historical_spending Dataset:
+
+  - The package includes a dataset (historical_spending) that contains
+    data on consumer spending related to Valentine’s Day from various
+    years.
+
+  - The dataset includes categories like Candy, Flowers, Jewelry,
+    GreetingCards, EveningOut, Clothing, and GiftCards, allowing for
+    in-depth analysis of spending trends across different types of
+    gifts.
+
+- Visualization Function: plot_trends_custom(data, y_vars):
+
+  - A function to plot multiple spending trends over time.
+
+  - This function allows users to select one or more spending categories
+    and generate a line plot to visualize the trends. Different colors
+    are assigned to each category to make the plot easy to interpret.
+
+- Package Documentation and Examples
+
+  - README: The README provides an overview of the package, how to
+    install it, and basic examples of how to use its features. It also
+    contains installation instructions using remotes::install_github()
+    and examples to help users get started.
+
+  - Vignette:The vignette would provide an in-depth guide on how to use
+    the package. It would include detailed analysis scenarios,
+    step-by-step examples, and real-world use cases.
+
+  - Function Documentation:Each function has detailed documentation that
+    explains the purpose of the function, its parameters, and example
+    usage.
+
+  - Shiny App: A Shiny app is included in the package under inst/shiny
+    that allows users to interactively explore different spending
+    trends.
