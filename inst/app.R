@@ -21,7 +21,7 @@ data("historical_spending")
 ui <- fluidPage(
 
   # Application title
-  titlePanel("Explore Valentine's Day Consumer Spending Trends"),
+  titlePanel(tags$h1("Explore Valentine's Day Consumer Spending Trends", style = "color: #00000 !important; text-align: center; font-weight: bold;")),
 
   # Sidebar layout with input and output definitions
   sidebarLayout(
@@ -30,12 +30,13 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput(
         inputId = "selected_vars",
-        label = "Select Spending Categories to Plot:",
+        label = tags$span("Select Spending Categories to Plot:", style = "font-weight: bold; color: #1d3557;"),
         choices = colnames(historical_spending)[3:10],  # Columns from Candy to GiftCards
         selected = c("Candy", "Flowers"),
         multiple = TRUE
       ),
-      helpText("Select one or more spending categories to visualize their trends over the years.")
+      helpText("Select one or more spending categories to visualize their trends over the years.", style = "font-style: italic; color: #457b9d;"),
+      style = "background-color: #f1faee; padding: 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);"
     ),
 
     # Main panel for displaying outputs
@@ -43,16 +44,18 @@ ui <- fluidPage(
       plotOutput("spendingPlot"),
       br(),
       wellPanel(
-        h4("Field Descriptions"),
-        p("This dataset contains spending information for various Valentine's Day gift categories from 2010 to 2022."),
-        p(strong("Year:"), " The year of recorded spending."),
-        p(strong("Candy, Flowers, Jewelry, etc.:"), " The spending amount in USD for each specific category.")
+        h4("Field Descriptions", style = "color: #1d3557;"),
+        p("This dataset contains spending information for various Valentine's Day gift categories from 2010 to 2022.", style = "color: #1d3557;"),
+        p(strong("Year:"), " The year of recorded spending.", style = "color: #1d3557;"),
+        p(strong("Candy, Flowers, Jewelry, etc.:"), " The spending amount in USD for each specific category.", style = "color: #1d3557;"),
+        style = "background-color: #f1faee !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;"
       ),
       wellPanel(
-        h4("How to Interpret the Outputs"),
-        p("The plot shows the spending trends over the years for the selected categories."),
-        p("Each line represents one category. By selecting multiple categories, you can compare their spending trends over time."),
-        p("This helps you understand which categories gained or lost popularity.")
+        h4("How to Interpret the Outputs", style = "color: #1d3557;"),
+        p("The plot shows the spending trends over the years for the selected categories.", style = "color: #1d3557;"),
+        p("Each line represents one category. By selecting multiple categories, you can compare their spending trends over time.", style = "color: #1d3557;"),
+        p("This helps you understand which categories gained or lost popularity.", style = "color: #1d3557;"),
+        style = "background-color: #f1faee !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;"
       )
     )
   ),
@@ -61,14 +64,31 @@ ui <- fluidPage(
   tags$head(
     tags$style(HTML("
       body {
-        background-color: #f7f7f7;
+        background-color: #f0f8ff !important;
+        font-family: 'Arial', sans-serif !important;
       }
       .well {
-        background-color: #e6e6e6;
-        border: 1px solid #ccc;
+        background-color: #f1faee !important;
+        border: 1px solid #a8dadc !important;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 10px !important;
       }
       .shiny-input-container {
-        margin-bottom: 20px;
+        margin-bottom: 20px !important;
+      }
+      .btn {
+        background-color: #e63946 !important;
+        color: white !important;
+        border-radius: 8px !important;
+        border: none !important;
+        padding: 10px 15px !important;
+      }
+      .btn:hover {
+        background-color: #d62828 !important;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) !important;
+      }
+      .shiny-bound-output {
+        margin-top: 20px !important;
       }
     "))
   )
@@ -87,16 +107,24 @@ server <- function(input, output) {
 
     # Plot using ggplot2
     ggplot(long_data, aes(x = Year, y = Value, color = Category, group = Category)) +
-      geom_line(size = 1) +
-      geom_point(size = 2) +
+      geom_line(size = 1.5) +
+      geom_point(size = 3) +
       labs(title = "Spending Trends for Selected Categories Over Time",
            x = "Year",
            y = "Spending in USD",
            color = "Category") +
       theme_minimal() +
-      theme(legend.position = "bottom")
+      theme(
+        plot.title = element_text(size = 20, face = "bold", color = "#1d3557"),
+        axis.title = element_text(size = 14, face = "bold", color = "#1d3557"),
+        axis.text = element_text(size = 12, color = "#457b9d"),
+        legend.position = "bottom",
+        legend.title = element_text(size = 14, face = "bold"),
+        legend.text = element_text(size = 12)
+      )
   })
 }
 
 # Run the application
 shinyApp(ui = ui, server = server)
+
