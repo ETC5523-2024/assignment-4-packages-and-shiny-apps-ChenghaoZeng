@@ -2,4 +2,6 @@
 inst/doc
 /doc/
 /Meta/
-docs
+# Ignore docs folder (Remove or comment this line to allow it)
+# docs/
+
