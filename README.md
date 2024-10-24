@@ -64,6 +64,12 @@ Components of valentineTool Package
     and generate a line plot to visualize the trends. Different colors
     are assigned to each category to make the plot easy to interpret.
 
+- Filter Spending Data by Year Range:filter_by_year(data, start_year,
+  end_year).
+
+- Launch the Valentine’s Day Consumer Trends Shiny App:
+  launch_valentine_app().
+
 - Package Documentation and Examples
 
   - README: The README provides an overview of the package, how to

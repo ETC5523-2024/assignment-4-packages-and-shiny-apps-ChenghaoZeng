@@ -60,6 +60,10 @@ ggplot(historical_spending, aes(x = Year, y = PercentCelebrating)) +
   - A function to plot multiple spending trends over time.
 
   - This function allows users to select one or more spending categories and generate a line plot to visualize the trends. Different colors are assigned to each category to make the plot easy to interpret.
+  
+- Filter Spending Data by Year Range:filter_by_year(data, start_year, end_year).
+
+- Launch the Valentine's Day Consumer Trends Shiny App: launch_valentine_app().
 
 - Package Documentation and Examples
 
