@@ -16,27 +16,22 @@
 #' # Plot trends for Candy, Flowers, and Jewelry over time
 #' plot_trends_custom(historical_spending, c("Candy", "Flowers", "Jewelry"))
 plot_trends_custom <- function(data, y_vars) {
-  library(ggplot2)
-  library(tidyr)
-
   # Ensure all Y variables are in the dataset
   if (!all(y_vars %in% names(data))) {
     stop("One or more specified Y variables are not in the data.")
   }
 
   # Reshape data to a long format for ggplot
-  long_data <- data %>%
-    pivot_longer(cols = all_of(y_vars), names_to = "Category", values_to = "Value")
+  long_data <- tidyr::pivot_longer(data, cols = dplyr::all_of(y_vars), names_to = "Category", values_to = "Value")
 
-  # Plot with ggplot
-  ggplot(long_data, aes(x = Year, y = Value, color = Category, group = Category)) +
-    geom_line(size = 1) +
-    geom_point(size = 2) +
-    labs(title = "Trends of Selected Variables Over Time",
-         x = "Year",
-         y = "Value",
-         color = "Category") +
-    theme_minimal() +
-    theme(legend.position = "right") # Position legend next to the plot
+  # Plot with ggplot2
+  ggplot2::ggplot(long_data, ggplot2::aes(x = Year, y = Value, color = Category, group = Category)) +
+    ggplot2::geom_line(size = 1) +
+    ggplot2::geom_point(size = 2) +
+    ggplot2::labs(title = "Trends of Selected Variables Over Time",
+                  x = "Year",
+                  y = "Value",
+                  color = "Category") +
+    ggplot2::theme_minimal() +
+    ggplot2::theme(legend.position = "right")
 }
-

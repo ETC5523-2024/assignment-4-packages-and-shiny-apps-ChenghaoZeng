@@ -17,6 +17,7 @@ First, we need to load the valentineTool package. We will also use dplyr for dat
 ```{r}
 library(valentineTool)
 library(dplyr)
+library(ggplot2)
 ```
 
 ## Step 1: Load the Data
