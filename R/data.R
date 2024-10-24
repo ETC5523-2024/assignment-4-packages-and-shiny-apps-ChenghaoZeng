@@ -8,13 +8,13 @@
 #'   \item{Year}{Year of recorded spending (2010-2022).}
 #'   \item{PercentCelebrating}{Percentage of people celebrating Valentine's Day in the given year.}
 #'   \item{PerPerson}{Average amount spent per person in USD.}
-#'   \item{Candy}{Spending on candy in USD.}
-#'   \item{Flowers}{Spending on flowers in USD.}
-#'   \item{Jewelry}{Spending on jewelry in USD.}
-#'   \item{GreetingCards}{Spending on greeting cards in USD.}
-#'   \item{EveningOut}{Spending on evening outings in USD.}
-#'   \item{Clothing}{Spending on clothing in USD.}
-#'   \item{GiftCards}{Spending on gift cards in USD.}
+#'   \item{Candy}{Average amount spending on candy in USD.}
+#'   \item{Flowers}{Average amount spending on flowers in USD.}
+#'   \item{Jewelry}{Average amount spending on jewelry in USD.}
+#'   \item{GreetingCards}{Average amount spending on greeting cards in USD.}
+#'   \item{EveningOut}{Average amount spending on evening outings in USD.}
+#'   \item{Clothing}{Average amount spending on clothing in USD.}
+#'   \item{GiftCards}{Average amount spending on gift cards in USD.}
 #' }
 #' @docType data
 #' @source <https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-02-13>

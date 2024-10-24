@@ -17,3 +17,13 @@ A ggplot object
 \description{
 This function plots the selected Y-axis variables over time, each with a different color.
 }
+\examples{
+# Load the valentineTool package
+library(valentineTool)
+
+# Load example dataset provided in the package
+data("historical_spending")
+
+# Plot trends for Candy, Flowers, and Jewelry over time
+plot_trends_custom(historical_spending, c("Candy", "Flowers", "Jewelry"))
+}

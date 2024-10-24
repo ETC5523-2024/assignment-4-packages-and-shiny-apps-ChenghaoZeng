@@ -1,0 +1,64 @@
+---
+title: "Visualizing Multiple Spending Trends with valentineTool"
+author: "Chenghao Zeng"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Valentine's Day Consumer Trends Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+The valentineTool package provides functions to help you analyze consumer spending trends for Valentine's Day. This vignette demonstrates how to use the plot_trends_custom() function to visualize multiple spending categories on a single plot. By plotting multiple lines, you can better understand how spending patterns on different Valentine's Day gifts evolved over the years.
+
+## Load Required Libraries
+
+First, we need to load the valentineTool package. We will also use dplyr for data manipulation.
+```{r}
+library(valentineTool)
+library(dplyr)
+```
+
+## Step 1: Load the Data
+
+The valentineTool package provides a dataset called historical_spending. This dataset contains information about Valentine's Day spending trends in different categories from 2010 to 2022.
+```{r}
+data("historical_spending")
+head(historical_spending)
+```
+
+## Step 2: Plot Multiple Spending Categories
+
+We want to plot the spending trends for Candy, Flowers, and Jewelry over time to understand how these categories compare to each other. The plot_trends_custom() function allows us to visualize these multiple categories in a single plot.
+```{r}
+plot_trends_custom(historical_spending, c("Candy", "Flowers", "Jewelry"))
+```
+
+In this plot, each line represents the spending trend for a different category. By comparing these trends, we can see how spending on different gift categories has evolved over the years. For example, we might notice that spending on jewelry has increased significantly compared to candy or flowers.
+
+## Step 3: Customizing the Plot
+
+To make the plot more informative, we can further customize it by adding a title, changing colors, and positioning the legend.
+
+```{r}
+plot_trends_custom(historical_spending, c("Candy", "Flowers", "Jewelry")) +
+  labs(title = "Spending Trends for Candy, Flowers, and Jewelry",
+       x = "Year",
+       y = "Spending in USD") +
+  scale_color_manual(values = c("Candy" = "red", "Flowers" = "green", "Jewelry" = "blue")) +
+  theme_minimal(base_size = 15) +
+  theme(legend.position = "bottom")
+```
+
+In the customized plot, we:
+
+- Added a Title: This helps to communicate the key message of the plot.
+
+- Changed Colors: We assigned specific colors to each category for better distinction.
+
+- Adjusted Legend Position: Placing the legend at the bottom helps make the plot more organized.
+
+## Conclusion
+The plot_trends_custom() function is a powerful tool for visualizing multiple consumer spending categories over time. By using it, we can easily compare trends and draw insights about changing consumer preferences during Valentine's Day. Customizing the plot further helps in making the visualizations more appealing and easier to interpret.
+
+Feel free to experiment with other categories in the dataset to uncover more insights about Valentine's Day spending trends!
