@@ -19,6 +19,7 @@ Imports:
   ggplot2,
   tidyr
 LazyData: true
+VignetteBuilder: knitr
 Suggests: 
     knitr,
     rmarkdown
